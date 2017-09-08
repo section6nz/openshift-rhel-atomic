@@ -14,7 +14,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'git@github.com:section6nz/openshift-atomic-base.git'
+      uri: 'git@github.com:section6nz/openshift-rhel-atomic.git'
       ref: master
       contextDir: images/rhel-atomic
     sourceSecret:
