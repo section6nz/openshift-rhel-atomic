@@ -18,7 +18,7 @@ spec:
       ref: master
       contextDir: images/rhel-atomic
     sourceSecret:
-      name: jenkins-deployment-key
+      name: deployment-key
   strategy:
     type: Docker
     dockerStrategy:
