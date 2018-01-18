@@ -5,31 +5,21 @@ metadata:
 spec:
   triggers:
     - type: ConfigChange
-    - type: imageChange
-      imageChange:
-        from:
-          kind: ImageStreamTag
-          name: registry.access.redhat.com/rhel-atomic:latest
   runPolicy: Serial
   source:
     type: Git
     git:
-      uri: 'git@github.com:section6nz/openshift-rhel-atomic.git'
+      uri: 'https://github.com/section6nz/openshift-rhel-atomic.git'
       ref: master
       contextDir: images/rhel-atomic
-    sourceSecret:
-      name: deployment-key
   strategy:
     type: Docker
     dockerStrategy:
       from:
-        kind: ImageStreamTag
+        kind: DockerImage
         name: registry.access.redhat.com/rhel-atomic:latest
       noCache: true
   output:
     to:
       kind: ImageStreamTag
       name: 'rhel-atomic:latest'
-  resources: {}
-  postCommit: {}
-  nodeSelector: null
