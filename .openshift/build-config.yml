@@ -5,11 +5,6 @@ metadata:
 spec:
   triggers:
     - type: ConfigChange
-    - type: imageChange
-      imageChange:
-        from:
-          kind: ImageStreamTag
-          name: registry.access.redhat.com/rhel-atomic:latest
   runPolicy: Serial
   source:
     type: Git
@@ -18,12 +13,12 @@ spec:
       ref: master
       contextDir: images/rhel-atomic
     sourceSecret:
-      name: jenkins-deployment-key
+      name: deployment-key
   strategy:
     type: Docker
     dockerStrategy:
       from:
-        kind: ImageStreamTag
+        kind: DockerImage
         name: registry.access.redhat.com/rhel-atomic:latest
       noCache: true
   output:
