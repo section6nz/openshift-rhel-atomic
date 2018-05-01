@@ -5,13 +5,12 @@ metadata:
 spec:
   triggers:
     - type: ConfigChange
-  runPolicy: Serial
+  runPolicy: SerialLatestOnly
   source:
     type: Git
     git:
       uri: 'https://github.com/section6nz/openshift-rhel-atomic.git'
       ref: master
-      contextDir: images/rhel-atomic
   strategy:
     type: Docker
     dockerStrategy:
